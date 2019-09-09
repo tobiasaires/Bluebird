@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use App\Services\Contracts\ProjectServiceInterface;
-use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
@@ -21,7 +21,7 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         $attributes = $request->only('title', 'description');
         $this->projectService->store($attributes);
