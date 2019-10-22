@@ -9,7 +9,7 @@ use App\Services\Contracts\ProjectServiceInterface;
 class ProjectsService implements ProjectServiceInterface
 {
     private $projectRepository;
-    
+
     public function __construct(ProjectRepositoryInterface $projectRepository)
     {
         $this->projectRepository = $projectRepository;
@@ -26,5 +26,12 @@ class ProjectsService implements ProjectServiceInterface
     public function store(array $attributes)
     {
         $this->projectRepository->storeProject($attributes);
+    }
+
+    public function getProject(string $projectId)
+    {
+        $project = $this->projectRepository->getProject($projectId);
+
+        return $project;
     }
 }

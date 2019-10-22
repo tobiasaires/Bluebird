@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Project;
 use App\Services\Contracts\ProjectServiceInterface;
 
 class ProjectsController extends Controller
@@ -27,5 +28,12 @@ class ProjectsController extends Controller
         $this->projectService->store($attributes);
 
         return redirect('/projects');
+    }
+
+    public function show(Project $project)
+    {
+        $project = $this->projectService->getProject($project->id);
+
+        return view('projects.show', compact('project'));
     }
 }

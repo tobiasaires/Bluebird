@@ -16,4 +16,9 @@ class ProjectRepository implements ProjectRepositoryInterface
     {
         Project::create($attributes);
     }
+
+    public function getProject(string $projectId)
+    {
+        return Project::findOrFail($projectId);
+    }
 }
