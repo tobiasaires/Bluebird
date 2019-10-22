@@ -14,7 +14,7 @@ class ProjectRepository implements ProjectRepositoryInterface
 
     public function storeProject(array $attributes)
     {
-        Project::create($attributes);
+        auth()->user()->projects()->create($attributes);
     }
 
     public function getProject(string $projectId)
