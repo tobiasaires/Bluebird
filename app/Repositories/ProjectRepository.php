@@ -9,7 +9,7 @@ class ProjectRepository implements ProjectRepositoryInterface
 {
     public function getAllProjects()
     {
-        return Project::all();
+        return auth()->user()->projects;
     }
 
     public function storeProject(array $attributes)

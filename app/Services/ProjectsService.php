@@ -18,9 +18,7 @@ class ProjectsService implements ProjectServiceInterface
 
     public function getAllProjects()
     {
-        $projects = $this->projectRepository->getAllProjects();
-
-        return $projects;
+        return $this->projectRepository->getAllProjects();
     }
 
     public function store(array $attributes)
@@ -30,8 +28,6 @@ class ProjectsService implements ProjectServiceInterface
 
     public function getProject(string $projectId)
     {
-        $project = $this->projectRepository->getProject($projectId);
-
-        return $project;
+        return $this->projectRepository->getProject($projectId);
     }
 }

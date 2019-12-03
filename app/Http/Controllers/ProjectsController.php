@@ -32,6 +32,11 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
+
+        if (auth()->user()->isNot($project->owner)) {
+            abort(403);
+        }
+
         $project = $this->projectService->getProject($project->id);
 
         return view('projects.show', compact('project'));
